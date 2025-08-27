@@ -1,0 +1,560 @@
+/* =====================
+   Navbar section
+   ===================== */
+.header {
+  background: var(--dark-bg);
+
+  color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo {
+  display: flex;          /* ترتيب الصورة والنص في صف واحد */
+  align-items: center;    /* محاذاة عمودية */
+  gap: 10px;              /* المسافة بين الصورة والنص */
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--main-color);
+  text-transform: capitalize;
+}
+
+.logo a:hover {
+  color: var(--white);
+}
+
+.logo-img {
+  width: 40px;           /* حجم الصورة */
+  height: 40px;          /* نفس قيمة العرض لتصبح دائرية */
+  border-radius: 50%;    /* هذه تجعل الصورة دائرية */
+  object-fit: cover;     /* لتناسب الصورة داخل الدائرة */
+}
+
+
+/* Navbar */
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+  text-transform: capitalize;
+}
+
+.navbar ul li a:hover {
+  background: var(--main-color);
+  border-radius: 5px;
+}
+
+/* Dropdown */
+.navbar ul li ul {
+  display: none;
+  position: absolute;
+  background: var(  --dark-bg);
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li a {
+  padding: 10px 15px;
+}
+
+.navbar ul li ul li a:hover {
+  background: var(--main-color);
+}
+
+/* إخفاء الأيقونة بشكل افتراضي */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* عند الشاشات الصغيرة */
+@media (max-width: 786px) {
+  .navbar {
+    display: none; /* إخفاء القائمة */
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--dark-bg);
+    width: 200px;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li a {
+    padding: 10px;
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block; /* إظهار زر القائمة */
+  }
+
+  .navbar.active {
+    display: flex; /* عرض القائمة عند الضغط */
+  }
+}
+
+/* =====================
+   Hero Section
+   ===================== */
+.hero {
+  height: 100vh; /* طول الشاشة بالكامل */
+  background-image: url('../imges/pngtree-car7.jpg'); /* تأكد من اسم المجلد */
+  background-size: cover;       /* تغطي الشاشة كاملة */
+  background-position: center;  /* الصورة تتمركز */
+  background-repeat: no-repeat; /* ما تكرر الصورة */
+  background-attachment: fixed; /* Parallax effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* طبقة شفافة */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--main-color);
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background: var(--hover-color);
+}
+
+/* What We Do Section */
+.what-we-do {
+  padding: 60px 40px;
+  text-align: center;
+  background: var(--light-bg);
+}
+
+.what-we-do h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: var(--dark-bg);
+  text-transform: capitalize;
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  grid-gap: 25px;
+  justify-items: center;
+}
+
+/* Card Style */
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+  background: var(--main-color); /* خلفية العنوان باللون الأساسي */
+  color: var(--white);
+  padding: 15px;
+  margin: 0;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.card p {
+  padding: 20px;
+  color: var(--text-color);
+  font-size: 15px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* =====================
+   About Us Section
+   ===================== */
+.about-us {
+  background: linear-gradient(135deg, #f9f9f9, #ffffff); /* خلفية فاتحة */
+  padding: 80px 20px;
+  border-radius: 20px; /* حواف ناعمة */
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3); /* ظل أحمر شفاف */
+  margin: 50px auto; 
+  max-width: 1400px; 
+}
+
+
+.about-us .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-us h2 {
+  width: 100%;
+  font-size: 42px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: var(--dark-bg);
+  font-weight: 700;
+}
+
+.about-img {
+  flex: 1 1 400px;
+  max-width: 500px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.about-content {
+  flex: 1 1 500px;
+}
+
+.about-content h3 {
+  color: var(--main-color);
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.about-content h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--main-color);
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.about-content p {
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-us .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content h3::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-content p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .about-us .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* الصورة تصغر وتوسّط */
+  .about-img {
+    max-width: 85%;
+    margin-bottom: 20px; /* مسافة تحت الصورة */
+  }
+
+  /* النص */
+  .about-content {
+    max-width: 90%;
+  }
+
+  .about-content h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+  .about-content h3::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-content p {
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 600px;   /* عرض أريح للقراءة */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 2;
+  }
+}
+
+
+  /* =====================
+       Cars Section
+       ===================== */
+    .cars-section {
+      padding: 80px 40px;
+      background: var(--light-bg);
+      text-align: center;
+    }
+
+    .cars-section h2 {
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: var(--dark-bg);
+      text-transform: capitalize;
+    }
+
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 أعمدة افتراضي */
+      gap: 25px;
+    }
+
+    /* للشاشات المتوسطة (تابلت) */
+    @media (max-width: 992px) {
+      .cars-grid {
+        grid-template-columns: repeat(2, 1fr); /* صفين */
+      }
+    }
+
+    /* للشاشات الصغيرة (موبايل) */
+    @media (max-width: 600px) {
+      .cars-grid {
+        grid-template-columns: 1fr; /* عمود واحد */
+      }
+    }
+
+    .car-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .car-info {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .car-info h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--dark-bg);
+    }
+
+    .car-info p {
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .car-info .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--main-color);
+      color: var(--white);
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #e60000;
+    }
+
+    .car-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+.site-footer {
+  background: #1e1e1e;
+  color: #ccc;
+  padding: 60px 40px 20px 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #f00;
+}
+
+.footer-column p {
+  margin: 8px 0;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #f00;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,64 @@
+/* ===========================
+   gloable CSS (Shared)
+   =========================== */
+
+/* Variables */
+:root {
+  --main-color: #ff4d4d;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f5f5f5;
+  --text-color: #333;
+  --white: #ffffff;
+
+  /* ألوان موجودة عندك */
+  --main-color: #ff4d4d;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f5f5f5;
+  --text-color: #333;
+  --white: #ffffff;
+
+  /* 🎨 ألوان إضافية من التصميم السابق */
+  --primary-blue: #0d47a1;   /* الأزرق الغامق للهيدر */
+  --secondary-purple: #9c27b0; /* البنفسجي */
+  --accent-orange: #ff5722;   /* البرتقالي */
+  --danger-red: #ff1744;      /* للأزرار التحذيرية */
+  --gray-light: #ccc;         /* الرمادي */
+  --gray-dark: #444;          /* الرمادي الغامق */
+}
+
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body default */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--main-color);
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background: #e63939;
+}
